@@ -6,6 +6,8 @@
 using namespace std;
 
 Matrix::Matrix(int n, int m, int** arr) {
+    if (n < 0 || m < 0)
+        abort();
     rows_cnt = n;
     cols_cnt = m;
     matrix = new int*[rows_cnt];
@@ -20,6 +22,8 @@ Matrix::Matrix(int n, int m, int** arr) {
 }
 
 Matrix::Matrix(int n, int m) {
+    if (n < 0 || m < 0)
+        abort();
     rows_cnt = n;
     cols_cnt = m;
     matrix = new int*[rows_cnt];
