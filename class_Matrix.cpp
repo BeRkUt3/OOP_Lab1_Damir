@@ -5,11 +5,9 @@
 
 using namespace std;
 
-Matrix::Matrix(int n, int m, int** arr) {
+Matrix::Matrix(int n, int m, int** arr): rows_cnt(n), cols_cnt(m) {
     if (n < 0 || m < 0)
         abort();
-    rows_cnt = n;
-    cols_cnt = m;
     matrix = new int*[rows_cnt];
     for (int row = 0; row < rows_cnt; ++row) {
         matrix[row] = new int[cols_cnt];
@@ -21,11 +19,9 @@ Matrix::Matrix(int n, int m, int** arr) {
     }
 }
 
-Matrix::Matrix(int n, int m) {
+Matrix::Matrix(int n, int m): rows_cnt(n), cols_cnt(m) {
     if (n < 0 || m < 0)
         abort();
-    rows_cnt = n;
-    cols_cnt = m;
     matrix = new int*[rows_cnt];
     for (int i = 0; i < rows_cnt; ++i) {
         matrix[i] = new int[cols_cnt]{0};
@@ -43,10 +39,7 @@ Matrix::Matrix(const Matrix& other): rows_cnt(other.rows_cnt), cols_cnt(other.co
     }
 }
 
-Matrix::Matrix(){
-    rows_cnt = 0;
-    cols_cnt = 0;
-    matrix = nullptr;
+Matrix::Matrix(): rows_cnt(0), cols_cnt(0), matrix(nullptr){
 }
 
 Matrix::~Matrix(){
