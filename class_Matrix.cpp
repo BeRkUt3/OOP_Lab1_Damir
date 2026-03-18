@@ -32,9 +32,7 @@ Matrix::Matrix(int n, int m) {
     }
 }
 
-Matrix::Matrix(const Matrix& other){
-    rows_cnt = other.rows_cnt;
-    cols_cnt = other.cols_cnt;
+Matrix::Matrix(const Matrix& other): rows_cnt(other.rows_cnt), cols_cnt(other.cols_cnt){
     matrix = new int*[rows_cnt];
 
     for (int row = 0; row < rows_cnt; ++row){
