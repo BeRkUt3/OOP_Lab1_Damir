@@ -28,6 +28,12 @@ Matrix::Matrix(int n, int m): rows_cnt(n), cols_cnt(m) {
     }
 }
 
+Matrix::Matrix(Matrix&& other): rows_cnt(other.rows_cnt), cols_cnt(other.cols_cnt), matrix(other.matrix){
+    other.rows_cnt = 0;
+    other.cols_cnt = 0;
+    other.matrix = nullptr;
+}
+
 Matrix::Matrix(const Matrix& other): rows_cnt(other.rows_cnt), cols_cnt(other.cols_cnt){
     matrix = new int*[rows_cnt];
 
