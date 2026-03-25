@@ -6,6 +6,7 @@ private:
 public:
     Matrix(int n, int m, int** arr);
     Matrix(int n, int m);
+    Matrix(Matrix&& other);
     Matrix();
     Matrix(const Matrix& other);
     ~Matrix();
