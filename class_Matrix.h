@@ -1,7 +1,19 @@
 class Matrix{
 private:
+    struct Node{
+        int i, j, val;
+        Node* nx;
+        Node(int row, int col, int value){
+            i = row;
+            j = col;
+            val = value;
+            nx = nullptr;
+        }
+
+    };
+
     int rows_cnt, cols_cnt;
-    int** matrix;
+    Node* matrix;
 
 public:
     Matrix(int n, int m, int** arr);
@@ -19,7 +31,7 @@ public:
     void ReadMatrix();
     void Print() const;
 
-    bool operator==(const Matrix& other) const;
+    bool Equals(const Matrix& other) const;
 
     Matrix Add(const Matrix& other) const;
     Matrix Mult(const Matrix& other) const;
